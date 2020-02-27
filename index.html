@@ -8,17 +8,15 @@
   <body>
     <script>
       "use strict";
-      let name = prompt("ваше имя?", "");
-      let age = prompt("сколько вам лет?", "");
-      let question = confirm("Алкоголь употребляем?");
-      if (question === false) {
-        alert(name + " " + "так держать!красава!");
-      } else if (age > 40 && question === true) {
-        alert(name + " " + "не злоупотребляйте");
-      } else if (age < 18 && question === true) {
-        alert(name + " " + "ты что?!маме расскажу и получишь по сраке!");
-      } else if (age >= 18 && age < 40) {
-        alert(name + " " + "только водку с пивом не мешай");
+      let userNumber = Number(prompt("введите число", ""));
+      let star = "*";
+      for (let i = 0; i < 1; i++) {
+        let res = "";
+        for (let j = 0; j < userNumber; j++) {
+          res = res + star + "\n";
+          star = star + "*";
+        }
+        console.log(res);
       }
     </script>
   </body>
