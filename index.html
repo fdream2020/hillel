@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <script>
-      "use strict";
-      let userNumber = Number(prompt("введите число", ""));
-      let star = "*";
-      let res = "";
-      for (let j = 0; j < userNumber; j++) {
-        res = res + star + "\n";
-        star = star + "*";
-      }
-      console.log(res);
+        "use strict"
+
+        function areaCircle(r) {
+            return Math.PI * Math.pow(r, 2);
+        }
+        console.log(areaCircle(+prompt("введите радиус круга,для вычисления площади", "")));
+            
+    
+        function circleLength(d) {
+            return Math.PI * d;
+        }
+        console.log(circleLength(+prompt("введите диаметр для вычисления длины", "")));
+            
+    
+        function arithmeticMean(a, b) {
+            return (a + b) / 2;
+        }
+        console.log(arithmeticMean(3, 4));
+
+
+        function division(a, b, c) {
+            if (c === "/") {
+                return a / b;
+            }
+        }
+        console.log(division(6, 2, "/"));
     </script>
-  </body>
+</body>
+
 </html>
