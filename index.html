@@ -15,15 +15,17 @@
       b : 3,
       c : 4,
       d : 5
-    }
-    function copy (origin ) {
-      let target = {};
-      for (let key in origin) {
+    };
+
+    let target = {};
+    
+    function copy (origin,target) {
+        for (let key in origin) {
         target[key] = origin[key];
       }
       return target;
     }
-    console.log(copy(origin));
+    console.log(copy(origin,target));
 
 
 
@@ -48,8 +50,8 @@
 
 
 
-    function sumAll(sumArg) {
-      sumArg = 0;
+    function sumAll() {
+      let sumArg = 0;
       for(let i = 0; i < arguments.length; i++) {
         sumArg = sumArg + arguments[i];
       }
