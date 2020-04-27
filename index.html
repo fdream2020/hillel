@@ -2,99 +2,69 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 
 <body>
-  <script>
-    "use strict";
-    const arr = [-246, 753, -468, 475, -683, 476, -583, 746, -581];
-    let res = arr.reduce(function (a, b) {
-      return a + b;
-    });
-    console.log([res]);
+    <script>
+        "use strict";
+        let keys = [
 
-    ////////////////////////////////
+            // [key, value, enumerable, writable, configurable],
 
-    let arr2 = arr.filter(function (number) {
-      return number < 0;
-    });
-    console.log(arr2);
+            ['value', 42, true, false, false],
 
-    ///////////////////////////////////
-    let arrN = arr.sort(function (a, b) {
-      return a - b;
-    });
-    console.log(arrN);
-    ///////////////////////////////////////////
+            ['value2', true, false, false, false],
 
+            ['value3', 'Hello', true, true, true]
 
-    let arrRes = arr.reverse();
-    console.log(arr);
-    /////////////////////////////////////////
+        ];
 
-    let divide = arr.map(function (arr) {
-      return arr / 2;
-    });
-    console.log(divide);
+        function createObj (arr) {
+            let obj = {};
+            arr.forEach(function(el){
+                obj[el[0]] = el[1];
+            });
+            return obj;
+        };
 
-    ////////////////////////////////////////////////////
+        function createObj2(keys) {
+            let obj ={};
+            keys.forEach(function(el){
+                Object.defineProperty(obj, el[0],{
+                    value: el[1],
+                    enumerable: el[2],
+                    writable: el[3],
+                    configurable: el[4]
+                });
+            });
+            return obj;
+        };
+        console.log(createObj2(keys));
+ //////////////////////////
 
-
-    const str = "12, 42, 63, 56, 122, 17, 117, 25, 645, 722, 964";
-    let num = str.split(", ").map(function (el) {
-      return +el;
-    });
-    console.log(num);
-    ///////////////////////
-    let even = num.filter(function (el) {
-      return el % 2 === 0;
-    });
-    console.log(even);
-    /////////////////////////////
-
-    const scheme = [
-
-      ['name', 'Vasya'],
-
-      ['age', 25],
-
-      ['score', 95]
-
-    ];
-
-   function makeObjectFromScheme(arr) {
-
-      let obj = {};
-      arr.forEach(function(el){
-        obj[el[0]] = el[1];
-      });
-      return obj;
-    };
-    console.log(makeObjectFromScheme(scheme));
-    //////////////////////////
-    let student = makeObjectFromScheme(scheme);
-
-    function makeArrFromSheme(obj){
-      let arr = [];
-      for(let key in obj){
-        arr.push([key, obj[key]]);
+        let obj1 = {
+        value: 42,
+        value2: true
       };
-      return arr;
-    };
-    console.log(makeArrFromSheme(student));
+
+      let obj2 = {
+        value: 42,
+        value2: true
+      };
+
+      function compareObj(obj1, obj2) {
+        let key1 = String(Object.entries(obj1));
+        let key2 = String(Object.entries(obj2));
+        return key1 === key2;
+      }
+      console.log(compareObj(obj1, obj2));
 
 
 
-
-
-
-
-
-
-  </script>
+    </script>
 
 </body>
 
